@@ -1,11 +1,12 @@
 import {Component, OnInit} from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import {EmployeeAccountInfoDto} from "../dto/EmployeeAccountInfoDto";
 import {FormService} from "../common/service/form-service";
 import {EmployeeLoginCompService} from "./EmployeeLoginCompService";
 import {tap} from "rxjs";
 import {ApiResponse} from "../common/util/ApiResponse";
 import {ToastrService} from "ngx-toastr";
+import {UserRequest} from "../dto/UserRequest";
+import {UserResponse} from "../dto/UserResponse";
 
 @Component({
   selector: 'EmployeeLoginComp',
@@ -15,7 +16,7 @@ import {ToastrService} from "ngx-toastr";
 export class EmployeeLoginComp implements OnInit{
 
 
-  employeeAccountInfoDtoFg: FormGroup = this.formService.makeBlankForm(EmployeeAccountInfoDto);
+  userRequestFg: FormGroup = this.formService.makeBlankForm(UserRequest);
 
   constructor(private formService: FormService,
               private employeeLoginCompService: EmployeeLoginCompService,
@@ -27,9 +28,8 @@ export class EmployeeLoginComp implements OnInit{
   }
 
   login() {
-    console.log(this.employeeAccountInfoDtoFg.value);
-    this.employeeLoginCompService.save(this.employeeAccountInfoDtoFg).pipe(
-      tap((res: ApiResponse<Array<EmployeeAccountInfoDto>> | null) => {
+    this.employeeLoginCompService.login(this.userRequestFg).pipe(
+      tap((res: ApiResponse<Array<UserResponse>> | null) => {
         if (res) {
           this.notify.success("Login Success");
           this.onResetAndPatch();
@@ -39,6 +39,6 @@ export class EmployeeLoginComp implements OnInit{
   }
 
   private onResetAndPatch() {
-    this.employeeAccountInfoDtoFg.reset();
+    this.userRequestFg.reset();
   }
 }
