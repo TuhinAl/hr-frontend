@@ -14,11 +14,14 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {EmployeeLoginCompService} from "./login/EmployeeLoginCompService";
 import {EmployeeApiService} from "./common/service/EmployeeApiService";
 import {ToastrModule, ToastrService} from "ngx-toastr";
+import {DashboardComp} from "./dashboard/DashboardComp";
+import {DashboardCompService} from "./dashboard/DashboardCompService";
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeRegistrationComp,
-    EmployeeLoginComp
+    EmployeeLoginComp,
+    DashboardComp
 
   ],
   imports: [
@@ -35,7 +38,8 @@ import {ToastrModule, ToastrService} from "ngx-toastr";
     FormService,
     RxFormBuilder,
     EmployeeLoginCompService,
-    EmployeeApiService],
+    EmployeeApiService,
+    DashboardCompService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
