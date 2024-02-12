@@ -1,39 +1,50 @@
 
 <div class="container">
   <header>Registration</header>
-  <form action="#">
+  <form [formGroup]="employeeInfoDtoFg">
     <div class="form first">
       <div class="details personal">
         <span class="title">Personal Details</span>
 
         <div class="fields">
           <div class="input-field">
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your name">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" placeholder="Enter your First name">
+          </div>
+
+          <div class="input-field">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" placeholder="Enter your Last name">
           </div>
 
           <div class="input-field">
             <label>Email</label>
-            <input type="text" placeholder="Enter your email">
+            <input type="text" formControlName="email" placeholder="Enter your email">
+          </div>
+
+          <div class="input-field">
+            <label>Username</label>
+            <input type="text" formControlName="username" placeholder="Enter your email">
           </div>
 
           <div class="input-field">
             <label>Mobile Number</label>
-            <input type="number" placeholder="Enter mobile number">
+            <input type="number" formControlName="mobile" placeholder="Enter mobile number">
           </div>
 
           <div class="input-field">
             <label>Password</label>
-            <input type="password" placeholder="Enter Password">
+            <input type="password" formControlName="password" placeholder="Enter Password">
           </div>
 
           <div class="input-field">
             <label>Confirm Password</label>
-            <input type="password" placeholder="Enter Password">
+            <input type="password" formControlName="confirmPassword" placeholder="Enter Password">
           </div>
 
           <div class="input-field">
-
+          </div>
+          <div class="input-field">
           </div>
 
           <button class="btn btn-success nextBtn" (click)="registration()">

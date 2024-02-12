@@ -25,7 +25,9 @@ import {DashboardCompService} from "./dashboard/DashboardCompService";
 
   ],
   imports: [
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right'
+    }),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

@@ -4,7 +4,7 @@
     <form action="#" [formGroup]="userRequestFg">
       <div class="row">
         <i class="fas fa-user"></i>
-        <input type="text" placeholder="username" formControlName="username">
+        <input type="text" placeholder="email/username/employee ID" formControlName="username">
       </div>
       <div class="row">
         <i class="fas fa-lock"></i>
@@ -16,7 +16,10 @@
 <!--        <input type="submit" value="Login">-->
       </div>
       <div >Not a member?
-        <button class="btn btn-success signup-link" routerLink="/registration" routerLinkActive="active">Registration</button>
+        <button type="button" class="btn btn-primary"
+                style="background: green; width: 100px; height: 30px"
+                routerLink="/registration"
+                routerLinkActive="active">Registration</button>
       </div>
 
     </form>
