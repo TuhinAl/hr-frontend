@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="main-body">
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+<!--              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">-->
+              <div class="mt-3">
+                <h4>{{employeeInfoDto.firstName}}{{" "}}{{employeeInfoDto.lastName}}</h4>
+                <p class="text-secondary mb-1">{{employeeInfoDto.designationTypeEnumValue}}</p>
+                <p class="text-muted font-size-sm">{{employeeInfoDto.address}}</p>
+                <button class="btn btn-success" (click)="checkIn()">Check-In</button>
+                <button class="btn btn-danger" (click)="checkOut()">Check-Out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h4 class="mb-0" >Full Name: {{employeeInfoDto.firstName}}</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <h4 class="mb-0">Email: {{employeeInfoDto.email}}</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <h4 class="mb-0">Phone:  {{employeeInfoDto.mobile}}</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <h4 class="mb-0">Address:  {{employeeInfoDto.address}}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

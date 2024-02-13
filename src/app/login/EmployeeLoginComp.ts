@@ -7,6 +7,7 @@ import {ApiResponse} from "../common/util/ApiResponse";
 import {ToastrService} from "ngx-toastr";
 import {UserRequest} from "../dto/UserRequest";
 import {UserResponse} from "../dto/UserResponse";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'EmployeeLoginComp',
@@ -20,6 +21,7 @@ export class EmployeeLoginComp implements OnInit{
 
   constructor(private formService: FormService,
               private employeeLoginCompService: EmployeeLoginCompService,
+              private router: Router,
               private notify: ToastrService) {
 
   }
@@ -29,10 +31,20 @@ export class EmployeeLoginComp implements OnInit{
 
   login() {
     this.employeeLoginCompService.login(this.userRequestFg).pipe(
-      tap((res: ApiResponse<Array<UserResponse>> | null) => {
+      tap((res: ApiResponse<UserResponse> | null) => {
         if (res) {
           this.notify.success("Login Success");
           this.onResetAndPatch();
+          console.log(res);
+          const token: string | null = res?.data?.token;
+          const userID: string | null = res?.data?.username;
+          if (token) {
+            localStorage.setItem('Authorization', token);
+          }
+          if (userID) {
+            localStorage.setItem('userID', userID);
+          }
+          this.router.navigateByUrl('/employee-dashboard')
         }
       })
     ).subscribe(e => e);

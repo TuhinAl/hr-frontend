@@ -16,7 +16,7 @@ export class EmployeeLoginCompService {
               private notify: ToastrService) {
   }
 
-  login(userRequestFg: FormGroup): Observable<ApiResponse<Array<UserResponse>> | null> {
+  login(userRequestFg: FormGroup): Observable<ApiResponse<UserResponse> | null> {
     const userRequest: UserRequest = new UserRequest(userRequestFg.value);
     return this.employeeApiService.login(userRequest).pipe(
       catchError(e => customErrorHandler(e, this.notify)),

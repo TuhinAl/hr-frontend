@@ -8,7 +8,7 @@ import {FormService} from "../common/service/form-service";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
-  selector: 'EmployeeRegistrationComp',
+  selector: 'EmployeeDashboardComp',
   templateUrl: './EmployeeRegistrationComp.html',
   styleUrls: ['./EmployeeRegistrationComp.scss']
 })

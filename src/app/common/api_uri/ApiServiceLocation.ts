@@ -1,7 +1,8 @@
 import {environment} from '../../../environments/environment';
 
 export const ApiServiceLocation = {
-  employee: environment.employee_login_service + '/',
+  // employee: environment.employee_login_service + '/',
+  employee: environment.employee_login_service,
  /* registration: environment.registration_service_url + '/api/v1/registration',
   pathology: environment.lis_service_url + '/api/v1/lis',
   opd: environment.opd_service_url + '/api/v1/opd',

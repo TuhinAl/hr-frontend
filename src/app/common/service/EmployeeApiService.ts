@@ -6,6 +6,8 @@ import {Injectable} from "@angular/core";
 import {EmployeeInfoDto} from "../../dto/EmployeeInfoDto";
 import {UserRequest} from "../../dto/UserRequest";
 import {UserResponse} from "../../dto/UserResponse";
+import {EmployeeInfoSearchDto} from "../../dto/EmployeeInfoSearchDto";
+import {AttendanceDto} from "../../dto/AttendanceDto";
 
 @Injectable()
 export class EmployeeApiService {
@@ -19,5 +21,14 @@ export class EmployeeApiService {
 
   login(userRequest: UserRequest): Observable<ApiResponse<UserResponse>> {
     return this.apiService.postV2(apiUriLocationEmployee.employee_login, userRequest);
+  }
+
+
+  search(employeeInfoSearchDto: EmployeeInfoSearchDto): Observable<ApiResponse<Array<EmployeeInfoDto>>> {
+    return this.apiService.postV2(apiUriLocationEmployee.employee_search, employeeInfoSearchDto);
+  }
+
+  checkInAdOut(attendanceDto: AttendanceDto): Observable<ApiResponse<AttendanceDto>> {
+    return this.apiService.postV2(apiUriLocationEmployee.attendance, attendanceDto);
   }
 }
