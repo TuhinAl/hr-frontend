@@ -1,7 +1,7 @@
 import {ApiServiceLocation} from "./ApiServiceLocation";
 
 export const apiUriLocationEmployee = {
-  employee_registration: `${ApiServiceLocation.employee}/registration`,
+  employee_registration: `${ApiServiceLocation.employee}/register`,
   employee_login: `${ApiServiceLocation.employee}/login`,
 
 
