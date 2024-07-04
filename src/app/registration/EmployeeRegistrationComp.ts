@@ -60,7 +60,6 @@ export class EmployeeRegistrationComp implements OnInit {
     info
     warning*/
   isValid(employeeInfoDto: EmployeeInfoDto): boolean {
-    console.log("inside isvalid");
     if (!employeeInfoDto.firstName || !employeeInfoDto.lastName || !employeeInfoDto.username
       || !employeeInfoDto.password || !employeeInfoDto.confirmPassword || !employeeInfoDto.mobile) {
       this.notify.info("Please Enter Required field.", "Required");

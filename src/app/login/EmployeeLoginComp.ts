@@ -30,12 +30,13 @@ export class EmployeeLoginComp implements OnInit{
   }
 
   login() {
-    this.employeeLoginCompService.login(this.userRequestFg).pipe(
-      tap((res: ApiResponse<UserResponse> | null) => {
+    this.employeeLoginCompService.login(this.userRequestFg)
+      .pipe(tap((res: ApiResponse<UserResponse> | null) => {
+        //console.log("Test Response: ",res)
         if (res) {
           this.notify.success("Login Success");
           this.onResetAndPatch();
-          console.log(res);
+          //console.log("Test Response: ",res)
           const token: string | null = res?.data?.token;
           const userID: string | null = res?.data?.username;
           if (token) {
@@ -47,7 +48,12 @@ export class EmployeeLoginComp implements OnInit{
           this.router.navigateByUrl('/employee-dashboard')
         }
       })
-    ).subscribe(e => e);
+    ).subscribe(res => {
+      console.log("Test Response: ",res)
+    },
+      error => {
+        console.log("Test error: ",error)
+      });
   }
 
   private onResetAndPatch() {
