@@ -1,13 +1,13 @@
-import {Component, OnInit} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import {FormService} from "../common/service/form-service";
-import {EmployeeLoginCompService} from "./EmployeeLoginCompService";
-import {tap} from "rxjs";
-import {ApiResponse} from "../common/util/ApiResponse";
-import {ToastrService} from "ngx-toastr";
-import {UserRequest} from "../dto/UserRequest";
-import {UserResponse} from "../dto/UserResponse";
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
+import { tap } from "rxjs";
+import { FormService } from "../common/service/form-service";
+import { ApiResponse } from "../common/util/ApiResponse";
+import { UserRequest } from "../dto/UserRequest";
+import { UserResponse } from "../dto/UserResponse";
+import { EmployeeLoginCompService } from "./EmployeeLoginCompService";
 
 @Component({
   selector: 'EmployeeLoginComp',
@@ -39,11 +39,21 @@ export class EmployeeLoginComp implements OnInit{
           //console.log("Test Response: ",res)
           const token: string | null = res?.data?.token;
           const userID: string | null = res?.data?.username;
+          const id: string | null = res?.data?.id;
+          const email: string | null = res?.data?.email;
+          console.log(res);
+          
           if (token) {
             localStorage.setItem('Authorization', token);
           }
           if (userID) {
             localStorage.setItem('userID', userID);
+          }
+          if (id) {
+            localStorage.setItem('id', id);
+          }
+          if (email) {
+            localStorage.setItem('email', email);
           }
           this.router.navigateByUrl('/employee-dashboard')
         }

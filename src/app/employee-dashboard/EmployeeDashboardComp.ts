@@ -18,14 +18,14 @@ import {Type} from "../enum/AttendanceEnum";
 export class EmployeeDashboardComp implements OnInit{
 
   employeeInfoDtoFg: FormGroup = this.formService.makeBlankForm(EmployeeInfoDto);
-  userId: string | null = null;
+  employeeID: string | null = null;
   enType: string | null = null;
   employeeInfoDto: EmployeeInfoDto = new EmployeeInfoDto();
 
   constructor(private formService: FormService,
               private notify: ToastrService,
               private employeeDashboardCompService: EmployeeDashboardCompService) {
-    this.userId = localStorage.getItem('userID');
+    this.employeeID = localStorage.getItem('id');
 
   }
 
@@ -35,7 +35,7 @@ export class EmployeeDashboardComp implements OnInit{
 
 
   search() {
-    this.employeeDashboardCompService.search(this.userId).pipe(
+    this.employeeDashboardCompService.search(this.employeeID).pipe(
       tap((res: ApiResponse<Array<EmployeeInfoDto>> | null) => {
         if (res) {
           this.employeeInfoDto = res.data['content'][0];
@@ -55,8 +55,8 @@ export class EmployeeDashboardComp implements OnInit{
 
   checkIn() {
     const attendanceDto: AttendanceDto = new AttendanceDto();
-    if (this.userId) {
-      attendanceDto.employeeId = this.userId;
+    if (this.employeeID) {
+      attendanceDto.employeeId = this.employeeID;
       attendanceDto.employeeNcId = this.employeeInfoDto.employeeNcId;
       attendanceDto.checkInOutTypeKey = Type.CHECK_IN;
     }
@@ -66,8 +66,8 @@ export class EmployeeDashboardComp implements OnInit{
 
   checkOut() {
     const attendanceDto: AttendanceDto = new AttendanceDto();
-    if (this.userId) {
-      attendanceDto.employeeId = this.userId;
+    if (this.employeeID) {
+      attendanceDto.employeeId = this.employeeID;
       attendanceDto.employeeNcId = this.employeeInfoDto.employeeNcId;
       attendanceDto.checkInOutTypeKey = Type.CHECK_OUT;
     }

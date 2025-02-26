@@ -1,8 +1,8 @@
-import {ApiServiceLocation} from "./ApiServiceLocation";
+import { ApiServiceLocation } from "./ApiServiceLocation";
 
 export const apiUriLocationEmployee = {
-  employee_registration: `${ApiServiceLocation.employee}/register`,
-  employee_login: `${ApiServiceLocation.employee}/login`,
+  employee_registration: `${ApiServiceLocation.employee}/api/auth/register`,
+  employee_login: `${ApiServiceLocation.employee}/api/auth/authenticate`,
 
 
 
