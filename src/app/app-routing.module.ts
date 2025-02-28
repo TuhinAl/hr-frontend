@@ -4,6 +4,7 @@ import {EmployeeLoginComp} from "./login/EmployeeLoginComp";
 import {EmployeeRegistrationComp} from "./registration/EmployeeRegistrationComp";
 import {DashboardComp} from "./dashboard/DashboardComp";
 import {EmployeeDashboardComp} from "./employee-dashboard/EmployeeDashboardComp";
+import { SidebarComp } from './sidebar-t/SidebarComp';
 
 const routes: Routes = [ {
   path: '',

@@ -46,8 +46,11 @@ export class EmployeeLoginComp implements OnInit{
           if (token) {
             localStorage.setItem('Authorization', token);
           }
-          if (userID) {
-            localStorage.setItem('userID', userID);
+          if (id) {
+            localStorage.setItem('id', id);
+          }
+          if (email) {
+            localStorage.setItem('email', email);
           }
           if (id) {
             localStorage.setItem('id', id);
@@ -59,7 +62,7 @@ export class EmployeeLoginComp implements OnInit{
         }
       })
     ).subscribe(res => {
-      console.log("Test Response: ",res)
+      // console.log("Test Response: ",res)
     },
       error => {
         console.log("Test error: ",error)

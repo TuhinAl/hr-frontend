@@ -8,6 +8,7 @@ export class UserResponse {
   @prop() id: string | null = null;
   @prop() email: string | null = null;
   @prop() isEnabled: boolean | null = null;
+  @prop() isPunchEnabled: boolean | null = null;
 
   constructor(o?: Partial<UserResponse>) {
     Object.assign(this, o);
