@@ -1,0 +1,77 @@
+/* filepath: /home/bjit/Public/study/ehr/code/hr-frontend/src/app/employee-details/employee-details.component.scss */
+.employee-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    background-color: #f4f4f9;
+    padding: 20px;
+  }
+  
+  .employee-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .employee-header {
+    margin-bottom: 20px;
+  }
+  
+  .employee-header h2 {
+    color: #333;
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .employee-info {
+    text-align: left;
+  }
+  
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .info-item label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .info-item span {
+    color: #777;
+  }
+  
+  @media (max-width: 768px) {
+    .employee-card {
+      padding: 15px;
+    }
+  
+    .employee-header h2 {
+      font-size: 20px;
+    }
+  
+    .info-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .info-item span {
+      margin-top: 5px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .employee-card {
+      padding: 10px;
+    }
+  
+    .employee-header h2 {
+      font-size: 18px;
+    }
+  }
