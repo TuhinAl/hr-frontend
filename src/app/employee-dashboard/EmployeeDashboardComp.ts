@@ -1,14 +1,14 @@
-import {Component, OnInit} from "@angular/core";
-import {EmployeeDashboardCompService} from "./EmployeeDashboardCompService";
-import {FormGroup} from "@angular/forms";
-import {EmployeeInfoDto} from "../dto/EmployeeInfoDto";
-import {FormService} from "../common/service/form-service";
-import {ToastrService} from "ngx-toastr";
-import {tap} from "rxjs";
-import {ApiResponse} from "../common/util/ApiResponse";
-import {AttendanceDto} from "../dto/AttendanceDto";
-import {UserResponse} from "../dto/UserResponse";
-import {Type} from "../enum/AttendanceEnum";
+import { Component, OnInit } from "@angular/core";
+import { FormGroup } from "@angular/forms";
+import { ToastrService } from "ngx-toastr";
+import { tap } from "rxjs";
+import { FormService } from "../common/service/form-service";
+import { ApiResponse } from "../common/util/ApiResponse";
+import { AttendanceDto } from "../dto/AttendanceDto";
+import { EmployeeInfoDto } from "../dto/EmployeeInfoDto";
+import { Type } from "../enum/AttendanceEnum";
+import { EmployeeDashboardCompService } from "./EmployeeDashboardCompService";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'EmployeeDashboardComp',
@@ -24,7 +24,8 @@ export class EmployeeDashboardComp implements OnInit{
 
   constructor(private formService: FormService,
               private notify: ToastrService,
-              private employeeDashboardCompService: EmployeeDashboardCompService) {
+              private employeeDashboardCompService: EmployeeDashboardCompService,
+            private router: Router,) {
     this.employeeID = localStorage.getItem('id');
 
   }
@@ -96,4 +97,32 @@ export class EmployeeDashboardComp implements OnInit{
       })
     ).subscribe(e => e);
   }
+
+  goToHome(){
+console.log("home routing button working properly");
+this.router.navigateByUrl('/employee-dashboard')
+
+  }
+
+  viewEmployeeList(){
+    console.log("list of all emloyee");
+    this.router.navigateByUrl('/employee-list')
+  }
+
+  viewYourAttendance(){
+    console.log("your attendance");
+    this.router.navigateByUrl('/employee-attendance')
+  }
+
+  viewYourPayroll(){
+    console.log("your payroll");
+    this.router.navigateByUrl('/employee-payroll')
+  }
+  makeLeaveRequest(){
+    console.log("leave request");
+    this.router.navigateByUrl('/employee-leave')
+  }
+
 }
+
+
