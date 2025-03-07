@@ -19,9 +19,11 @@ import { EmployeeLoginComp } from "./login/EmployeeLoginComp";
 import { EmployeeLoginCompService } from "./login/EmployeeLoginCompService";
 import { EmployeeRegistrationComp } from "./registration/EmployeeRegistrationComp";
 import { EmployeeRegistrationCompService } from "./registration/EmployeeRegistrationCompService";
-import { SidebarComp } from './sidebar-t/SidebarComp';
-import { SidebarCompService } from './sidebar-t/SidebarCompService';
 import { IonicModule } from '@ionic/angular';
+import { EmployeeDetailsComp } from './employee-details/EmployeeDetailsComp';
+import { EmployeeDetailsCompService } from './employee-details/EmployeeDetailsCompService';
+import { EmployeeListComp } from './employee-list/EmployeeListComp';
+import { EmployeeListCompService } from './employee-list/EmployeeListCompService';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { IonicModule } from '@ionic/angular';
     EmployeeLoginComp,
     DashboardComp,
     EmployeeDashboardComp,
-    SidebarComp
+    EmployeeDetailsComp,
+    EmployeeListComp
 
   ],
   imports: [
@@ -59,7 +62,8 @@ import { IonicModule } from '@ionic/angular';
     EmployeeApiService,
     DashboardCompService,
     EmployeeDashboardCompService,
-    SidebarCompService
+    EmployeeDetailsCompService,
+    EmployeeListCompService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

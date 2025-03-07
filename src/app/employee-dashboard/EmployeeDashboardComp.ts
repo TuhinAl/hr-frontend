@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { tap } from "rxjs";
 import { FormService } from "../common/service/form-service";
@@ -8,7 +9,6 @@ import { AttendanceDto } from "../dto/AttendanceDto";
 import { EmployeeInfoDto } from "../dto/EmployeeInfoDto";
 import { Type } from "../enum/AttendanceEnum";
 import { EmployeeDashboardCompService } from "./EmployeeDashboardCompService";
-import { Router } from "@angular/router";
 
 @Component({
   selector: 'EmployeeDashboardComp',

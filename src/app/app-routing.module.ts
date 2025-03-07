@@ -4,7 +4,7 @@ import {EmployeeLoginComp} from "./login/EmployeeLoginComp";
 import {EmployeeRegistrationComp} from "./registration/EmployeeRegistrationComp";
 import {DashboardComp} from "./dashboard/DashboardComp";
 import {EmployeeDashboardComp} from "./employee-dashboard/EmployeeDashboardComp";
-import { SidebarComp } from './sidebar-t/SidebarComp';
+import { EmployeeListComp } from './employee-list/EmployeeListComp';
 
 const routes: Routes = [ {
   path: '',
@@ -22,6 +22,10 @@ const routes: Routes = [ {
   {
     path: 'registration',
     component: EmployeeRegistrationComp
+  },
+  {
+    path: 'employee-list',
+    component: EmployeeListComp
   },
   {
     path: 'employee-dashboard',
