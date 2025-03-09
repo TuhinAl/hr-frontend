@@ -21,6 +21,7 @@
     "@ionic/angular": "^8.4.3",
     "@ionic/core": "^8.4.3",
     "@rxweb/reactive-form-validators": "^13.0.1",
+    "ag-grid-community": "^33.1.1",
     "body-parser": "^1.20.3",
     "bootstrap": "^5.3.3",
     "ng-bootstrap-icons": "^13.1.2-canary.1",

@@ -9,7 +9,6 @@ import { ToastrModule, ToastrService } from "ngx-toastr";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeInterceptor } from "./auth-service/employee.interceptor";
-import { EmployeeApiService } from "./common/service/EmployeeApiService";
 import { FormService } from "./common/service/form-service";
 import { DashboardComp } from "./dashboard/DashboardComp";
 import { DashboardCompService } from "./dashboard/DashboardCompService";
@@ -24,6 +23,8 @@ import { EmployeeDetailsComp } from './employee-details/EmployeeDetailsComp';
 import { EmployeeDetailsCompService } from './employee-details/EmployeeDetailsCompService';
 import { EmployeeListComp } from './employee-list/EmployeeListComp';
 import { EmployeeListCompService } from './employee-list/EmployeeListCompService';
+import { EmployeeCompApiService } from './common/api_uri/EmployeeCompApiService';
+import { EmployeeApiService } from './common/service/EmployeeApiService';
 
 @NgModule({
   declarations: [
@@ -53,17 +54,19 @@ import { EmployeeListCompService } from './employee-list/EmployeeListCompService
       provide: HTTP_INTERCEPTORS,
       useClass: EmployeeInterceptor,
       multi: true
+      /* The multi: true option ensures that the interceptor is appended to the existing array of interceptors rather than replacing them. */
     },
     EmployeeRegistrationCompService,
     ToastrService,
     FormService,
     RxFormBuilder,
     EmployeeLoginCompService,
-    EmployeeApiService,
     DashboardCompService,
     EmployeeDashboardCompService,
     EmployeeDetailsCompService,
-    EmployeeListCompService
+    EmployeeListCompService,
+    EmployeeCompApiService,
+    EmployeeApiService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
