@@ -1,0 +1,14 @@
+<ng-select [items]="prescriptionChiefComplaintDtoListRSubj.asObservable() | async"
+           bindLabel="displayProp"
+           bindValue="opdLookupDetailId"
+           formControlName="opdLookupDetailId"
+           [addTag]="addTag"
+           (change)="onSelectItemFromOptionList($event)"
+           [typeahead]="chiefComplaintSearchSubj"
+           [hideSelected]="true"
+           placeholder="Search here"
+           [minTermLength]="minLengthTerm"
+           typeToSearchText="Please enter {{minLengthTerm}} or more characters"
+           (click)="clickedInsideChiefComplaint($event)"
+>
+</ng-select>

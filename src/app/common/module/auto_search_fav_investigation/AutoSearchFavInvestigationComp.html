@@ -1,0 +1,36 @@
+
+<!--{{selectedList | json}}-->
+
+<ng-select #combo
+           [clearSearchOnAdd]="true"
+           [multiple]="true"
+           [items]="optionList$ | async"
+           [closeOnSelect]="false"
+           (change)="onSelectionChange($event)"
+           (remove)="onRemoveFn($event)"
+           (focus)="onTouched($event)"
+           placeholder="Please enter 2 or more alphabets"
+           [typeahead]="autoSearchValueSubj"
+           appendTo="body"
+           [(ngModel)]="selectedList"
+           [clearable]="true"
+           >
+
+  <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+    <div class="ng-value" *ngFor="let item of items">
+      <span class="ng-value-label">{{item?.investigationCode}} {{item?.investigationName}} </span>
+      <span class="btn btn-soft-success waves-effect waves-light" (click)="addToFavourite(item)">
+        <i class="fa fa-star"></i>
+      </span>
+      <span class="btn btn-soft-danger waves-effect waves-light" (click)="clear(item)" aria-hidden="true">
+        <i class="fa fa-trash"></i>
+      </span>
+    </div>
+  </ng-template>
+
+  <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+    <!--<input id="item-{{index}}" type="checkbox" [checked]="item$.selected" />--> {{item?.investigationCode}} {{item?.investigationName}}
+  </ng-template>
+
+</ng-select>
+

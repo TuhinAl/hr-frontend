@@ -1,0 +1,34 @@
+
+<ng-select
+  [items]="optionListRSubj | async"
+  [clearSearchOnAdd]="true"
+  [multiple]="true"
+  [closeOnSelect]="false"
+  (change)="onSelectFromOptionList($event)"
+  (focus)="onTouch($event)"
+  placeholder="Please enter 2 or more alphabets"
+  [addTag]="enableAddNew === 'true' ? addNewFromNgSelect.bind(this) : false"
+  [typeahead]="autoSearchValueSubj"
+  appendTo="body"
+  [(ngModel)]="selectedListT"
+  (clear) = "clear()"
+  >
+
+  <ng-template ng-multi-label-tmp let-items="items" >
+    <div class="ng-value" *ngFor="let item of items">
+      <span class="ng-value-label">{{item['displayProp'] }} </span>
+      <span class="btn btn-soft-success waves-effect waves-light" (click)="addToFavourite(item)">
+        <i class="fa fa-star"></i>
+      </span>
+      <span class="btn btn-soft-danger waves-effect waves-light" (click)="removeItem(item)" aria-hidden="true">
+        <i class="fa fa-trash"></i>
+      </span>
+    </div>
+  </ng-template>
+
+  <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+    {{item['displayProp'] }}
+  </ng-template>
+
+</ng-select>
+

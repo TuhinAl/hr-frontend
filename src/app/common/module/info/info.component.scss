@@ -1,0 +1,21 @@
+.cancel{
+  display:none
+}
+.tooltip-container {
+  position: relative;
+}
+
+.notify-container {
+  display: inline-block;
+  position: absolute;
+  z-index: 2;
+  bottom: 125%;
+  width:300px;
+  background: white;
+  box-shadow: 5px 5px 10px rgba(0,0,0,.1);
+  font-size: .8em;
+  padding: 1em;
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: transform .5s cubic-bezier(.17,.67,.83,.67);
+}

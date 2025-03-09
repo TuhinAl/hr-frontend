@@ -1,0 +1,9 @@
+
+<div class="tooltip-container" #tooltip_container>
+  <button class="btn btn-primary" (click)="showToolTip()" *ngIf="!isShowing">?</button>
+  <button class="btn btn-primary" (click)="hideToolTip()" *ngIf="isShowing">X</button>
+
+  <div class="notify-container" #notify_container>
+    {{message}}
+  </div>
+</div>

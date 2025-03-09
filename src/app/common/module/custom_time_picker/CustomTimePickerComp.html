@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col">
+    <!--<input type="text" class="form-control" [value]="dataForHour" placeholder="Hour"
+           (change)="onChangeHour($event)" (keyup)="onChangeHour($event)" (blur)="onChangeHour($event)"/>-->
+
+    <select class="form-control" [value]="timeIn12h.hour" #hourEl
+            (change)="onChangeHour($event, hourEl.value)" [disabled]="disabled"> <!--[disabled]="hourT==='Hour'"-->
+      <option value="null" [selected]="timeIn12h.hour===null" hidden>Hour</option>
+      <option *ngFor="let hourT of this.customTimePickerCompService.hourList" [value]="hourT"
+              [selected]="hourT===timeIn12h.hour">{{ hourT }}</option>
+    </select>
+  </div>
+
+  <div class="col">
+    <select class="form-control" [value]="timeIn12h.minute" #minuteEl
+            (change)="onChangeMinute($event, minuteEl.value)" [disabled]="disabled">
+      <option value="null" [selected]="timeIn12h.minute===null"  hidden>Min</option>
+      <option *ngFor="let minuteT of this.customTimePickerCompService.minuteList" [value]="minuteT"
+              [selected]="minuteT===timeIn12h.minute">{{ minuteT }}</option>
+    </select>
+  </div>
+
+  <div class="col">
+    <select class="form-control" [value]="timeIn12h.apm" #ampEl
+            (change)="onChangeApm($event, ampEl.value)" [disabled]="disabled">
+      <option value="null" [selected]="timeIn12h.apm===null" hidden>AM/PM</option>
+      <option *ngFor="let apmT of this.customTimePickerCompService.apmList" [value]="apmT"
+              [selected]="apmT===timeIn12h.apm">{{ apmT }}</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div *ngIf="this.control?.invalid && (this.control?.dirty || this.control?.touched)" class="alert alert-danger">
+      <div *ngIf="errorWithMessage.length > 0">
+        {{errorWithMessage[0].errorMessage}}
+      </div>
+    </div>
+  </div>
+</div>
+
