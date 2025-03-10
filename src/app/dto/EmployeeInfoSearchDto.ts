@@ -1,12 +1,12 @@
 import {prop} from "@rxweb/reactive-form-validators";
+import { FormStatusWithPage } from "../common/model/FormStatusWithPage";
 
-export class EmployeeInfoSearchDto {
+export class EmployeeInfoSearchDto extends FormStatusWithPage {
 
   @prop() id: string | null = null;
-  @prop() page: number | null = null;
-  @prop() size: number | null = null;
 
-  constructor(o?: Partial<EmployeeInfoSearchDto>) {
-    Object.assign(this, o);
+  constructor(object?: Partial<EmployeeInfoSearchDto>) {
+    super();
+    Object.assign(this, object);
   }
 }

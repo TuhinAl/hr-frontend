@@ -44,6 +44,8 @@ export class EmployeeLoginComp implements OnInit{
           console.log(res);
           
           if (token) {
+            console.log("Token: ",token);
+            
             localStorage.setItem('Authorization', token);
           }
           if (id) {

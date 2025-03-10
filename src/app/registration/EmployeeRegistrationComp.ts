@@ -1,12 +1,12 @@
-import {Component, OnInit} from "@angular/core";
-import {tap} from "rxjs";
-import {ApiResponse} from "../common/util/ApiResponse";
-import {EmployeeRegistrationCompService} from "./EmployeeRegistrationCompService";
-import {FormGroup} from "@angular/forms";
-import {EmployeeInfoDto} from "../dto/EmployeeInfoDto";
-import {FormService} from "../common/service/form-service";
-import {ToastrService} from "ngx-toastr";
-import {Router} from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import { FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
+import { tap } from "rxjs";
+import { FormService } from "../common/service/form-service";
+import { ApiResponse } from "../common/util/ApiResponse";
+import { EmployeeInfoDto } from "../dto/EmployeeInfoDto";
+import { EmployeeRegistrationCompService } from "./EmployeeRegistrationCompService";
 
 @Component({
   selector: 'EmployeeDashboardComp',

@@ -1,14 +1,11 @@
-import {Component, OnInit} from "@angular/core";
-import {FormGroup} from "@angular/forms";
-import {EmployeeInfoDto} from "../dto/EmployeeInfoDto";
-import {FormService} from "../common/service/form-service";
-import {ToastrService} from "ngx-toastr";
-import {tap} from "rxjs";
-import {ApiResponse} from "../common/util/ApiResponse";
-import {AttendanceDto} from "../dto/AttendanceDto";
-import {UserResponse} from "../dto/UserResponse";
-import {Type} from "../enum/AttendanceEnum";
+import { Component, OnInit } from "@angular/core";
+import { FormGroup } from "@angular/forms";
+import { ToastrService } from "ngx-toastr";
+import { tap } from "rxjs";
+import { FormService } from "../common/service/form-service";
+import { EmployeeInfoDto } from "../dto/EmployeeInfoDto";
 import { EmployeeDetailsCompService } from "./EmployeeDetailsCompService";
+import { ApiResponse } from "../common/util/ApiResponse";
 
 @Component({
   selector: 'EmployeeDetailsComp',
