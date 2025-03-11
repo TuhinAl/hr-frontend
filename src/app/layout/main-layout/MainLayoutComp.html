@@ -1,0 +1,55 @@
+<!--Sidebar-->
+<div class="sidebar">
+    <div class="bar-icon">
+        <div class="bar-1-active"></div>
+        <div class="bar-2-active"></div>
+        <div class="bar-3-active"></div>
+    </div>
+    <!-- <div style="text-align: left; margin-left: 10px;">
+        <img class="logo" src="assets/img/logo/logo-1.png" width="100" height="100">
+    </div> -->
+    
+    <ul class="list-unstyled">
+        <a [routerLink]="['/employee-dashboard']" routerLinkActive="active"><li style="top:58px"><span>Home</span></li></a>
+        <a [routerLink]="['/employee-list']" routerLinkActive="active"><li style="top:117px"><span>Employee List</span></li></a>
+        <a [routerLink]="['/attendance']" routerLinkActive="active"><li style="top:175px"><span>Attendance</span></li></a>
+        <a [routerLink]="['/payroll']" routerLinkActive="active"><li style="top:234px"><span>Salary</span></li></a>
+        <a [routerLink]="['/leave']" routerLinkActive="active"><li style="top:293px"><span>Leave Request</span></li></a>
+    </ul>
+</div>
+    
+  <!--Sidebar-->
+  
+  <div class="main">
+    <nav class="navbar navbar-expand-lg bg-white ">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto right-header">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#"><i class="fas fa-power-off"></i><span>Logout</span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  
+    <!-- This is where your components will be loaded -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  
+    <div class="footer">
+      <div class="row">
+          <div class="footer-elements">
+              <ul class="list-unstyled">
+                  <li>Terms of Use</li>
+                  <li>|</li>
+                  <li>Privacy Policy</li>
+                  <li style="text-align: center; width: 100%;">eHR All Rights Reserved</li>
+              </ul>
+          </div>
+      </div>
+    </div>
+  </div>
