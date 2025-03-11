@@ -5,6 +5,7 @@ import {EmployeeRegistrationComp} from "./registration/EmployeeRegistrationComp"
 import {DashboardComp} from "./dashboard/DashboardComp";
 import {EmployeeDashboardComp} from "./employee-dashboard/EmployeeDashboardComp";
 import { EmployeeListComp } from './employee-list/EmployeeListComp';
+import { MainLayoutComp } from './layout/main-layout/MainLayoutComp';
 
 const routes: Routes = [ {
   path: '',
@@ -13,7 +14,14 @@ const routes: Routes = [ {
 },
   {
     path: '',
-    component: DashboardComp
+    // component: DashboardComp
+    component: MainLayoutComp,
+    children: [
+      { path: '', redirectTo: 'employee-dashboard', pathMatch: 'full' },
+      { path: 'employee-dashboard', component: EmployeeDashboardComp },
+      { path: 'employee-list', component: EmployeeListComp },
+      // Add other routes here
+    ]
   },
   {
     path: 'login',
@@ -23,18 +31,19 @@ const routes: Routes = [ {
     path: 'registration',
     component: EmployeeRegistrationComp
   },
-  {
+  /* {
     path: 'employee-list',
     component: EmployeeListComp
-  },
-  {
+  }, */
+  /* {
     path: 'employee-dashboard',
     component: EmployeeDashboardComp,
     children:[{
       path: 'employee-dashboard',
       component: EmployeeDashboardComp
     }]
-  },
+  }, */
+
   // { path: '**', component: PageNotFoundComponent },
 ];
 

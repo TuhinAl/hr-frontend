@@ -25,6 +25,8 @@ import { EmployeeListComp } from './employee-list/EmployeeListComp';
 import { EmployeeListCompService } from './employee-list/EmployeeListCompService';
 import { EmployeeCompApiService } from './common/api_uri/EmployeeCompApiService';
 import { EmployeeApiService } from './common/service/EmployeeApiService';
+import { MainLayoutComp } from './layout/main-layout/MainLayoutComp';
+import { MainLayoutCompService } from './layout/main-layout/MainLayoutCompService';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { EmployeeApiService } from './common/service/EmployeeApiService';
     DashboardComp,
     EmployeeDashboardComp,
     EmployeeDetailsComp,
-    EmployeeListComp
+    EmployeeListComp,
+    MainLayoutComp
 
   ],
   imports: [
@@ -66,7 +69,8 @@ import { EmployeeApiService } from './common/service/EmployeeApiService';
     EmployeeDetailsCompService,
     EmployeeListCompService,
     EmployeeCompApiService,
-    EmployeeApiService
+    EmployeeApiService,
+    MainLayoutCompService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
