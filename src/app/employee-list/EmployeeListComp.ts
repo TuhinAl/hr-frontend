@@ -6,6 +6,7 @@ import { Page } from "../common/model/page";
 import { EmployeeInfoDto } from "../dto/EmployeeInfoDto";
 import { CurrentPage } from "../common/model/current-page";
 import { ApiResponse } from "../common/util/ApiResponse";
+import { sleep } from "../common/util/misc-util";
 
 @Component({
   selector: 'EmployeeListComp',
@@ -14,13 +15,14 @@ import { ApiResponse } from "../common/util/ApiResponse";
 })
 export class EmployeeListComp implements OnInit{
   
-  columnDef: ColDef[] = [
+  id: string | null = null
+  employeeInfoDtoPage: Page<EmployeeInfoDto> = new Page()
+
+  empColumnDef: ColDef[] = [
     {headerName: 'Employee Name', field: 'firstName', width: 250, editable: false, colId: 'firstName', filter: true},
     {headerName: 'Employee ID', field: 'employeeNcId', width: 250, editable: false, colId: 'employeeNcId', filter: true},
     {headerName: 'Email', field: 'email', width: 200, editable: false, colId: 'email', filter: true},
   ];
-  id: string | null = null
-  employeeInfoDtoPage: Page<EmployeeInfoDto> = new Page()
 
   
   constructor(private employeeListCompService : EmployeeListCompService) { 
@@ -28,26 +30,23 @@ export class EmployeeListComp implements OnInit{
   }
 
   ngOnInit() {
-    this.searchEmployee()
+    this.searchEmployee({page: 0, size: 10});
   }
 
-  searchEmployee() {
+  searchEmployee(currentPage: any) {
     const employeeSearch: EmployeeInfoSearchDto = new EmployeeInfoSearchDto();
     employeeSearch.page = 0;
     employeeSearch.size = 10;
     employeeSearch.id = this.id
+    console.log('EmployeeSearch Object:', employeeSearch.id);
+    
     this.employeeListCompService.search(employeeSearch)
       .subscribe((res: ApiResponse<Page<EmployeeInfoDto>> | null) => {
         if (res && res.data.content) {
           this.employeeInfoDtoPage = res.data;
-          this.priintEmployeeInfo(this.employeeInfoDtoPage);
         }
       });
 
   }
-
-priintEmployeeInfo(data: Page<EmployeeInfoDto>){
-console.log(data);
-}
 
 }
