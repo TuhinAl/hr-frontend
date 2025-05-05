@@ -4,6 +4,7 @@ import { Page } from "../common/model/page";
 import { EmployeeInfoDto } from "../dto/EmployeeInfoDto";
 import { EmployeeInfoSearchDto } from "../dto/EmployeeInfoSearchDto";
 import { EmployeeListCompService } from "./EmployeeListCompService";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -83,7 +84,9 @@ onGridReady(params: GridReadyEvent) {
 
 
 
-  constructor(private employeeListCompService: EmployeeListCompService) { 
+  constructor(private employeeListCompService: EmployeeListCompService,
+    private router: Router
+  ) { 
     // Register the correct modules
     // ModuleRegistry.registerModules([ClientSideRowModelModule]);
     this.id = localStorage.getItem('id');
@@ -215,5 +218,22 @@ onGridReady(params: GridReadyEvent) {
     this.employeeInfoDtoPage.numberOfElements = 5;
     this.employeeInfoDtoPage.size = 10;
     this.employeeInfoDtoPage.empty = false;
+  }
+
+
+  viewDetails(employee: EmployeeInfoDto) {
+    // Implement the logic to view employee details
+    console.log('View details for:', employee);
+    // You can navigate to a different route or open a modal with employee details
+
+    // Navigate to the employee details page with employee ID parameter
+
+    // In the viewDetails method
+    /* this.router.navigate(['/employee-details', employee.id], {
+      state: { employee: employee }
+    }); */
+    this.router.navigate(['/employee-details'], {
+      state: { employee: employee }
+    });
   }
 }

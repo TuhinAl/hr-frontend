@@ -37,7 +37,7 @@
             <p><strong>Employee ID:</strong> {{ employee.employeeNcId }}</p>
             <p><strong>Email:</strong> {{ employee.email }}</p>
             <div class="text-center mt-3">
-              <button class="btn btn-outline-primary btn-sm">View Details</button>
+              <button class="btn btn-outline-primary btn-sm" (click)="viewDetails(employee)" >View Details</button>
             </div>
           </div>
         </div>

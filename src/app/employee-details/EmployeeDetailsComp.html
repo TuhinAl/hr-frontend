@@ -5,28 +5,36 @@
     </div>
     <div class="employee-info">
       <div class="info-item">
-        <label>Name:</label>
-        <span>John Doe</span>
+        <label>Employee ID:</label>
+        <span>{{ employeeInfoDto?.employeeNcId }}</span>
       </div>
       <div class="info-item">
-        <label>Designation:</label>
-        <span>Software Engineer</span>
+        <label>Name:</label>
+        <span>{{ employeeInfoDto?.firstName }} {{ employeeInfoDto?.lastName }}</span>
+      </div>
+      <div class="info-item">
+        <label>Username:</label>
+        <span>{{ employeeInfoDto?.username }}</span>
       </div>
       <div class="info-item">
         <label>Email:</label>
-        <span>john.doe@example.com</span>
+        <span>{{ employeeInfoDto?.email }}</span>
       </div>
       <div class="info-item">
-        <label>Today's Punch Time:</label>
-        <span>09:00 AM</span>
-      </div>
-      <div class="info-item">
-        <label>Department:</label>
-        <span>IT</span>
+        <label>Designation:</label>
+        <span>{{ employeeInfoDto?.designationTypeEnumValue }}</span>
       </div>
       <div class="info-item">
         <label>Mobile:</label>
-        <span>+1234567890</span>
+        <span>{{ employeeInfoDto?.mobile || 'Not provided' }}</span>
+      </div>
+      <div class="info-item">
+        <label>Address:</label>
+        <span>{{ employeeInfoDto?.address || 'Not provided' }}</span>
+      </div>
+      <div class="info-item" *ngIf="employeeInfoDto?.designationTypeEnumKey">
+        <label>Department Code:</label>
+        <span>{{ employeeInfoDto?.designationTypeEnumKey }}</span>
       </div>
     </div>
   </div>
