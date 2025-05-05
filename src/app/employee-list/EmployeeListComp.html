@@ -1,32 +1,160 @@
-<!-- <div class="row">
-   <div class="col-md-12">
-    <div class="form-group">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Employee ID</th>
-            <th>Name</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let employee of employeeInfoDtoPage.content">
-            <td>{{ employee.employeeNcId }}</td>
-            <td>{{ employee.firstName +" "+employee.lastName}}</td>
-            <td>{{ employee.email }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div> 
-</div> -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Employee Directory</h2>
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="table-responsive">
-      <data-grid [columnDefs]="empColumnDef" (getPage)="searchEmployee($event)" 
-      [page]="employeeInfoDtoPage">
-      </data-grid>
+  <!-- Search Box - Fixed to use template reference variable instead of ngModel -->
+  <div class="row mb-4">
+    <div class="col-md-6 mx-auto">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search employees..." #searchInput
+          (input)="searchEmployee(searchInput.value)">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" (click)="searchEmployee(searchInput.value)">
+            <i class="fa fa-search"></i> Search
+          </button>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- No results message -->
+  <div *ngIf="employeeInfoDtoPage?.content?.length === 0" class="text-center py-5">
+    <p class="text-muted">No employees found matching your search criteria</p>
+  </div>
+
+  <!-- Simple grid layout for 3 cards per row -->
+  <div class="employee-grid">
+    <div class="employee-grid-item" *ngFor="let employee of employeeInfoDtoPage.content">
+      <div class="card employee-card h-100 shadow">
+        <div class="card-header bg-primary text-white text-center">
+          <div class="employee-avatar">
+            <!-- Default avatar if no image available -->
+            <i class="fa fa-user-circle fa-5x"></i>
+          </div>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title text-center">{{ employee.firstName }} {{ employee.lastName }}</h2>
+          <div class="employee-details">
+            <p><strong>Employee ID:</strong> {{ employee.employeeNcId }}</p>
+            <p><strong>Email:</strong> {{ employee.email }}</p>
+            <div class="text-center mt-3">
+              <button class="btn btn-outline-primary btn-sm">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination controls -->
+  <!-- <nav aria-label="Employee pagination" class="mt-4">
+    <ul class="pagination justify-content-center">
+        <li class="page-item" [ngClass]="{'disabled': employeeInfoDtoPage.first}">
+          <a class="page-link" href="javascript:void(0)" (click)="!employeeInfoDtoPage.first && previousPage()">Previous</a>
+        </li>
+        <li class="page-item disabled">
+          <a class="page-link">Page {{ employeeInfoDtoPage.number + 1 }} of {{ employeeInfoDtoPage.totalPages }}</a>
+        </li>
+        <li class="page-item" [ngClass]="{'disabled': employeeInfoDtoPage.last}">
+          <a class="page-link" href="javascript:void(0)" (click)="!employeeInfoDtoPage.last && nextPage()">Next</a>
+        </li>
+    </ul>
+  </nav> -->
 </div>
+
+<style>
+  /* Employee card styling */
+  .employee-card {
+    transition: transform 0.3s;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .employee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .employee-avatar {
+    padding: 15px 0;
+    color: white;
+  }
+
+  .employee-details {
+    padding: 10px;
+  }
+
+  .card-title {
+    color: #3a3a3a;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  /* Custom grid layout */
+  .employee-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+
+  .employee-grid-item {
+    flex: 0 0 33.333333%;  /* Exactly 3 cards per row */
+    max-width: 33.333333%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+  }
+
+  /* Card height standardization */
+  .card-deck .card {
+    flex: 1 0 auto;
+  }
+
+  /* Responsive styling */
+  @media (max-width: 767.98px) {
+    .employee-avatar i {
+      font-size: 4em;
+    }
+  }
+
+  /* Width control for different screen sizes */
+  @media (min-width: 992px) {
+    .col-lg-4 {
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .col-md-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+    
+    .employee-grid-item {
+      flex: 0 0 50%;  /* 2 cards per row on medium devices */
+      max-width: 50%;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .col-sm-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    
+    .employee-grid-item {
+      flex: 0 0 100%;  /* 1 card per row on small devices */
+      max-width: 100%;
+    }
+  }
+</style>
