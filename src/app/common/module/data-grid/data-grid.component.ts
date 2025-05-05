@@ -5,7 +5,7 @@ import { ColumnApi } from 'ag-grid-community/dist/lib/columns/columnApi';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { CurrentPage } from '../../model/current-page';
 import { Page } from '../../model/page';
-import { toInteger, toString } from '../../util-old/type-convert-util';
+import { toInteger, toString } from '../../util/type-convert-util';
 import { DataGridIconComponent } from './data-grid-icon/data-grid-icon.component';
 
 @Component({

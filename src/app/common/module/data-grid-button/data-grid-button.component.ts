@@ -5,7 +5,7 @@ import { ColumnApi } from 'ag-grid-community/dist/lib/columns/columnApi';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { CurrentPage } from '../../model/current-page';
 import { Page } from '../../model/page';
-import { toInteger } from '../../util-old/type-convert-util';
+import { toInteger } from '../../util/type-convert-util';
 import { ButtonRendererComponent } from './button-renderer/button-renderer.component';
 
 @Component({
@@ -90,5 +90,6 @@ export class DataGridButtonComponent implements OnInit, OnChanges {
     resizable: true,
   };
 
-  public rowSelection = 'single';
+  // public rowSelection = 'single' | 'multiple' | undefined;
+  rowSelection: 'single' | 'multiple' | undefined = 'single'; 
 }

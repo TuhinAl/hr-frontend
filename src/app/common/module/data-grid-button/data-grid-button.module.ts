@@ -13,7 +13,7 @@ import {ButtonRendererComponent} from './button-renderer/button-renderer.compone
   ],
   imports: [
     CommonModule,
-    AgGridModule.withComponents([ButtonRendererComponent]),
+    AgGridModule,
     PaginationModule.forRoot(),
     FormsModule
   ],
