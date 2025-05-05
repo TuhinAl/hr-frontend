@@ -6,6 +6,7 @@ import {DashboardComp} from "./dashboard/DashboardComp";
 import {EmployeeDashboardComp} from "./employee-dashboard/EmployeeDashboardComp";
 import { EmployeeListComp } from './employee-list/EmployeeListComp';
 import { MainLayoutComp } from './layout/main-layout/MainLayoutComp';
+import { EmployeeDetailsComp } from './employee-details/EmployeeDetailsComp';
 
 const routes: Routes = [ {
   path: '',
@@ -30,6 +31,10 @@ const routes: Routes = [ {
   {
     path: 'registration',
     component: EmployeeRegistrationComp
+  },
+  {
+    path: 'employee-details',
+    component: EmployeeDetailsComp
   },
   /* {
     path: 'employee-list',
