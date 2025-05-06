@@ -1,11 +1,17 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-import { ReactiveFormsModule } from "@angular/forms";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
-import { RxFormBuilder, RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
+import { RxFormBuilder, RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { AgGridModule } from 'ag-grid-angular';
 import { ToastrModule, ToastrService } from "ngx-toastr";
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +26,10 @@ import { EmployeeDashboardComp } from "./employee-dashboard/EmployeeDashboardCom
 import { EmployeeDashboardCompService } from "./employee-dashboard/EmployeeDashboardCompService";
 import { EmployeeDetailsComp } from './employee-details/EmployeeDetailsComp';
 import { EmployeeDetailsCompService } from './employee-details/EmployeeDetailsCompService';
+import { EmployeeLeaveListComp } from './employee-leave-list/EmployeeLeaveListComp';
+import { EmployeeLeaveListCompService } from './employee-leave-list/EmployeeLeaveListCompService';
+import { EmployeeLeaveComp } from './employee-leave/EmployeeLeaveComp';
+import { EmployeeLeaveCompService } from './employee-leave/EmployeeLeaveCompService';
 import { EmployeeListComp } from './employee-list/EmployeeListComp';
 import { EmployeeListCompService } from './employee-list/EmployeeListCompService';
 import { MainLayoutComp } from './layout/main-layout/MainLayoutComp';
@@ -38,13 +48,16 @@ import { EmployeeRegistrationCompService } from "./registration/EmployeeRegistra
     EmployeeDashboardComp,
     EmployeeDetailsComp,
     EmployeeListComp,
-    MainLayoutComp
+    MainLayoutComp,
+    EmployeeLeaveComp,
+    EmployeeLeaveListComp
 
   ],
   imports: [
     ToastrModule.forRoot({
       positionClass: 'toast-top-right'
     }),
+    IonicModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -52,7 +65,14 @@ import { EmployeeRegistrationCompService } from "./registration/EmployeeRegistra
     ReactiveFormsModule,
     RxReactiveFormsModule,
     AgGridModule,
-    IonicModule.forRoot()
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    FormsModule,
   ],
   providers: [
     {
@@ -72,7 +92,9 @@ import { EmployeeRegistrationCompService } from "./registration/EmployeeRegistra
     EmployeeListCompService,
     EmployeeCompApiService,
     EmployeeApiService,
-    MainLayoutCompService
+    MainLayoutCompService,
+    EmployeeLeaveCompService,
+    EmployeeLeaveListCompService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
